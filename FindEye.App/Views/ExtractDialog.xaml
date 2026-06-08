@@ -1,0 +1,94 @@
+<UserControl x:Class="FindEye.App.Views.ExtractDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:helpers="clr-namespace:FindEye.App.Helpers"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             Width="480">
+
+    <Grid Margin="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Title -->
+        <TextBlock Grid.Row="0"
+                   Text="{helpers:Translate Extract_Title}"
+                   FontSize="20" FontWeight="SemiBold"
+                   Margin="0,0,0,8" />
+
+        <TextBlock Grid.Row="1"
+                   Text="{helpers:Translate Extract_Description}"
+                   Foreground="{DynamicResource MaterialDesignBodyLight}"
+                   Margin="0,0,0,16" />
+
+        <!-- Checkboxes -->
+        <StackPanel Grid.Row="2" Margin="0,0,0,12">
+            <CheckBox IsChecked="{Binding IncludeOnlyInA}"
+                      Content="{helpers:Translate Extract_OnlyInA}"
+                      Margin="0,0,0,6" FontSize="13" />
+            <CheckBox IsChecked="{Binding IncludeOnlyInB}"
+                      Content="{helpers:Translate Extract_OnlyInB}"
+                      Margin="0,0,0,6" FontSize="13" />
+            <CheckBox IsChecked="{Binding IncludeContentDifferent}"
+                      Content="{helpers:Translate Extract_ContentDiffers}"
+                      Margin="0,0,0,6" FontSize="13" />
+            <CheckBox IsChecked="{Binding IncludeIdentical}"
+                      Content="{helpers:Translate Extract_Identical}"
+                      FontSize="13" />
+        </StackPanel>
+
+        <!-- Base folder selector -->
+        <TextBlock Grid.Row="3"
+                   Text="{helpers:Translate Extract_BaseFolder}"
+                   FontSize="13" FontWeight="SemiBold"
+                   Margin="0,0,0,6" />
+        <ComboBox Grid.Row="4"
+                  SelectedItem="{Binding SelectedBaseFolder}"
+                  ItemsSource="{Binding BaseFolderOptions}"
+                  Margin="0,0,0,16"
+                  md:HintAssist.Hint="Select base folder" />
+
+        <!-- Destination -->
+        <TextBlock Grid.Row="5"
+                   Text="{helpers:Translate Extract_Destination}"
+                   FontSize="13" FontWeight="SemiBold"
+                   Margin="0,0,0,6" />
+        <Grid Grid.Row="6" Margin="0,0,0,24">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="0"
+                     Text="{Binding DestinationPath, UpdateSourceTrigger=PropertyChanged}"
+                     IsReadOnly="True"
+                     md:HintAssist.Hint="Select destination folder..." />
+            <Button Grid.Column="1"
+                    Content="..."
+                    Command="{Binding BrowseDestinationCommand}"
+                    Margin="8,0,0,0"
+                    Style="{StaticResource MaterialDesignOutlinedButton}"
+                    Width="40" />
+        </Grid>
+
+        <!-- Action buttons -->
+        <StackPanel Grid.Row="7" Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+            <Button Content="{helpers:Translate Cancel}"
+                    Command="{Binding CancelCommand}"
+                    Style="{StaticResource MaterialDesignOutlinedButton}"
+                    Margin="0,0,12,0" />
+            <Button Content="{helpers:Translate Extract_Start}"
+                    Command="{Binding ExtractCommand}"
+                    Style="{StaticResource MaterialDesignRaisedButton}" />
+        </StackPanel>
+    </Grid>
+</UserControl>

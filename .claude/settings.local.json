@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dotnet --version)",
+      "Bash(dotnet --list-sdks)",
+      "Bash(dotnet nuget list *)",
+      "Bash(dotnet new list *)",
+      "Bash(Get-ChildItem D:\\\\ABJwork\\\\FindEye *)",
+      "PowerShell(dotnet new sln *)",
+      "PowerShell(dotnet new classlib *)",
+      "PowerShell(dotnet new wpf *)",
+      "PowerShell(dotnet sln *)",
+      "PowerShell(dotnet add *)",
+      "PowerShell(dotnet remove *)",
+      "PowerShell(dotnet build *)",
+      "PowerShell(New-Item *)",
+      "PowerShell(Test-Path *)",
+      "PowerShell($wpfPath = \"C:\\\\Users\\\\Roborock\\\\.nuget\\\\packages\\\\prism.wpf\\\\9.0.537\\\\lib\\\\net6.0-windows7.0\\\\Prism.Wpf.dll\"; $bytes = [System.IO.File]::ReadAllBytes\\($wpfPath\\); $text = [System.Text.Encoding]::ASCII.GetString\\($bytes\\); $matches = [regex]::Matches\\($text, \"Prism\\\\.[A-Za-z.]+\"\\); $matches | ForEach-Object { $_.Value } | Sort-Object -Unique)",
+      "PowerShell($wpfPath = \"C:\\\\Users\\\\Roborock\\\\.nuget\\\\packages\\\\prism.wpf\\\\9.0.537\\\\lib\\\\net6.0-windows7.0\\\\Prism.Wpf.dll\"; $bytes = [System.IO.File]::ReadAllBytes\\($wpfPath\\); $text = [System.Text.Encoding]::ASCII.GetString\\($bytes\\); $matches = [regex]::Matches\\($text, \"RequestClose[^.]{0,100}\"\\); $matches | ForEach-Object { $_.Value } | Sort-Object -Unique)",
+      "PowerShell($wpfPath = \"C:\\\\Users\\\\Roborock\\\\.nuget\\\\packages\\\\prism.wpf\\\\9.0.537\\\\lib\\\\net6.0-windows7.0\\\\Prism.Wpf.dll\"; $bytes = [System.IO.File]::ReadAllBytes\\($wpfPath\\); $text = [System.Text.Encoding]::ASCII.GetString\\($bytes\\); $matches = [regex]::Matches\\($text, \"DialogAware[^.]{0,200}\"\\); $matches | ForEach-Object { $_.Value } | Sort-Object -Unique)",
+      "PowerShell($wpfPath = \"C:\\\\Users\\\\Roborock\\\\.nuget\\\\packages\\\\prism.wpf\\\\9.0.537\\\\lib\\\\net6.0-windows7.0\\\\Prism.Wpf.dll\"; $bytes = [System.IO.File]::ReadAllBytes\\($wpfPath\\); $text = [System.Text.Encoding]::Unicode.GetString\\($bytes\\); $pattern = \"get_Title|set_Title|add_RequestClose|remove_RequestClose|CanCloseDialog|OnDialogOpened|OnDialogClosed\"; $match = [regex]::Matches\\($text, $pattern\\); Write-Output \"Member accessors found:\"; $match | ForEach-Object { Write-Output \"  $\\($_.Value\\)\" })",
+      "WebSearch",
+      "Bash(dotnet run *)",
+      "PowerShell(Start-Process -FilePath \"dotnet\" -ArgumentList \"run --project D:\\\\ABJwork\\\\FindEye\\\\FindEye.App\\\\FindEye.App.csproj\" -WorkingDirectory \"D:\\\\ABJwork\\\\FindEye\" -NoNewWindow)",
+      "WebFetch(domain:raw.githubusercontent.com)"
+    ]
+  }
+}

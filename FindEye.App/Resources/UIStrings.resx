@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <data name="AppName" xml:space="preserve"><value>FindEye</value></data>
+  <data name="FolderA" xml:space="preserve"><value>Folder A:</value></data>
+  <data name="FolderB" xml:space="preserve"><value>Folder B:</value></data>
+  <data name="Browse" xml:space="preserve"><value>Browse...</value></data>
+  <data name="Compare" xml:space="preserve"><value>Start Comparison</value></data>
+  <data name="Cancel" xml:space="preserve"><value>Cancel</value></data>
+  <data name="Extract" xml:space="preserve"><value>Extract Files...</value></data>
+  <data name="SearchPlaceholder" xml:space="preserve"><value>Filter results...</value></data>
+  <data name="StatusReady" xml:space="preserve"><value>Ready. Select two folders and click Compare.</value></data>
+  <data name="StatusComplete" xml:space="preserve"><value>Comparison complete in {0:F1}s — {1} identical, {2} only in A, {3} only in B, {4} different</value></data>
+  <data name="StatusCancelled" xml:space="preserve"><value>Comparison cancelled.</value></data>
+  <data name="StatusError" xml:space="preserve"><value>Error: {0}</value></data>
+  <data name="Diff_OnlyInA" xml:space="preserve"><value>Only in A</value></data>
+  <data name="Diff_OnlyInB" xml:space="preserve"><value>Only in B</value></data>
+  <data name="Diff_ContentDiffers" xml:space="preserve"><value>Content differs</value></data>
+  <data name="Diff_Identical" xml:space="preserve"><value>Identical</value></data>
+  <data name="Detail_FileName" xml:space="preserve"><value>File Name</value></data>
+  <data name="Detail_Size" xml:space="preserve"><value>Size</value></data>
+  <data name="Detail_Hash" xml:space="preserve"><value>SHA256</value></data>
+  <data name="Detail_Modified" xml:space="preserve"><value>Modified</value></data>
+  <data name="Detail_Path" xml:space="preserve"><value>Path</value></data>
+  <data name="Detail_DiffType" xml:space="preserve"><value>Status</value></data>
+  <data name="Extract_Title" xml:space="preserve"><value>Extract Files</value></data>
+  <data name="Extract_Description" xml:space="preserve"><value>Choose which file categories to extract:</value></data>
+  <data name="Extract_OnlyInA" xml:space="preserve"><value>Files only in Folder A</value></data>
+  <data name="Extract_OnlyInB" xml:space="preserve"><value>Files only in Folder B</value></data>
+  <data name="Extract_ContentDiffers" xml:space="preserve"><value>Files with different content</value></data>
+  <data name="Extract_Identical" xml:space="preserve"><value>Identical files</value></data>
+  <data name="Extract_BaseFolder" xml:space="preserve"><value>Use as base:</value></data>
+  <data name="Extract_Destination" xml:space="preserve"><value>Destination folder:</value></data>
+  <data name="Extract_Start" xml:space="preserve"><value>Extract</value></data>
+  <data name="Menu_File" xml:space="preserve"><value>_File</value></data>
+  <data name="Menu_Exit" xml:space="preserve"><value>E_xit</value></data>
+  <data name="Menu_Language" xml:space="preserve"><value>_Language</value></data>
+  <data name="Menu_English" xml:space="preserve"><value>English</value></data>
+  <data name="Menu_Chinese" xml:space="preserve"><value>中文</value></data>
+  <data name="Menu_View" xml:space="preserve"><value>_View</value></data>
+  <data name="Filter_All" xml:space="preserve"><value>All</value></data>
+  <data name="Filter_OnlyInA" xml:space="preserve"><value>Only in A</value></data>
+  <data name="Filter_OnlyInB" xml:space="preserve"><value>Only in B</value></data>
+  <data name="Filter_Different" xml:space="preserve"><value>Content differs</value></data>
+  <data name="SelectFileHint" xml:space="preserve"><value>Select a file to view details</value></data>
+  <data name="NoResults" xml:space="preserve"><value>No comparison results yet. Start by selecting two folders above.</value></data>
+  <data name="ExtractComplete" xml:space="preserve"><value>Extraction complete. {0} files copied.</value></data>
+</root>

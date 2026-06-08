@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <data name="AppName" xml:space="preserve"><value>FindEye</value></data>
+  <data name="FolderA" xml:space="preserve"><value>文件夹 A：</value></data>
+  <data name="FolderB" xml:space="preserve"><value>文件夹 B：</value></data>
+  <data name="Browse" xml:space="preserve"><value>浏览...</value></data>
+  <data name="Compare" xml:space="preserve"><value>开始比较</value></data>
+  <data name="Cancel" xml:space="preserve"><value>取消</value></data>
+  <data name="Extract" xml:space="preserve"><value>提取文件...</value></data>
+  <data name="SearchPlaceholder" xml:space="preserve"><value>筛选结果...</value></data>
+  <data name="StatusReady" xml:space="preserve"><value>就绪。选择两个文件夹并点击开始比较。</value></data>
+  <data name="StatusComplete" xml:space="preserve"><value>比较完成，耗时 {0:F1}秒 — 相同: {1}, 仅A存在: {2}, 仅B存在: {3}, 内容不同: {4}</value></data>
+  <data name="StatusCancelled" xml:space="preserve"><value>比较已取消。</value></data>
+  <data name="StatusError" xml:space="preserve"><value>错误：{0}</value></data>
+  <data name="Diff_OnlyInA" xml:space="preserve"><value>仅存在于 A</value></data>
+  <data name="Diff_OnlyInB" xml:space="preserve"><value>仅存在于 B</value></data>
+  <data name="Diff_ContentDiffers" xml:space="preserve"><value>内容不同</value></data>
+  <data name="Diff_Identical" xml:space="preserve"><value>完全相同</value></data>
+  <data name="Detail_FileName" xml:space="preserve"><value>文件名</value></data>
+  <data name="Detail_Size" xml:space="preserve"><value>大小</value></data>
+  <data name="Detail_Hash" xml:space="preserve"><value>SHA256</value></data>
+  <data name="Detail_Modified" xml:space="preserve"><value>修改时间</value></data>
+  <data name="Detail_Path" xml:space="preserve"><value>路径</value></data>
+  <data name="Detail_DiffType" xml:space="preserve"><value>状态</value></data>
+  <data name="Extract_Title" xml:space="preserve"><value>提取文件</value></data>
+  <data name="Extract_Description" xml:space="preserve"><value>选择要提取的文件类别：</value></data>
+  <data name="Extract_OnlyInA" xml:space="preserve"><value>仅存在于文件夹 A 的文件</value></data>
+  <data name="Extract_OnlyInB" xml:space="preserve"><value>仅存在于文件夹 B 的文件</value></data>
+  <data name="Extract_ContentDiffers" xml:space="preserve"><value>内容不同的文件</value></data>
+  <data name="Extract_Identical" xml:space="preserve"><value>完全相同的文件</value></data>
+  <data name="Extract_BaseFolder" xml:space="preserve"><value>以哪个文件夹为基准：</value></data>
+  <data name="Extract_Destination" xml:space="preserve"><value>目标文件夹：</value></data>
+  <data name="Extract_Start" xml:space="preserve"><value>开始提取</value></data>
+  <data name="Menu_File" xml:space="preserve"><value>文件(_F)</value></data>
+  <data name="Menu_Exit" xml:space="preserve"><value>退出(_X)</value></data>
+  <data name="Menu_Language" xml:space="preserve"><value>语言(_L)</value></data>
+  <data name="Menu_English" xml:space="preserve"><value>英文</value></data>
+  <data name="Menu_Chinese" xml:space="preserve"><value>中文</value></data>
+  <data name="Menu_View" xml:space="preserve"><value>视图(_V)</value></data>
+  <data name="Filter_All" xml:space="preserve"><value>全部</value></data>
+  <data name="Filter_OnlyInA" xml:space="preserve"><value>仅 A 存在</value></data>
+  <data name="Filter_OnlyInB" xml:space="preserve"><value>仅 B 存在</value></data>
+  <data name="Filter_Different" xml:space="preserve"><value>内容不同</value></data>
+  <data name="SelectFileHint" xml:space="preserve"><value>选择一个文件以查看详情</value></data>
+  <data name="NoResults" xml:space="preserve"><value>暂无比较结果。请在上方选择两个文件夹后开始比较。</value></data>
+  <data name="ExtractComplete" xml:space="preserve"><value>提取完成。已复制 {0} 个文件。</value></data>
+</root>
