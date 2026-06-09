@@ -55,7 +55,7 @@
                   SelectedItem="{Binding SelectedBaseFolder}"
                   ItemsSource="{Binding BaseFolderOptions}"
                   Margin="0,0,0,16"
-                  md:HintAssist.Hint="Select base folder" />
+                  md:HintAssist.Hint="{helpers:Translate Hint_SelectBaseFolder}" />
 
         <!-- Destination -->
         <TextBlock Grid.Row="5"
@@ -70,7 +70,7 @@
             <TextBox Grid.Column="0"
                      Text="{Binding DestinationPath, UpdateSourceTrigger=PropertyChanged}"
                      IsReadOnly="True"
-                     md:HintAssist.Hint="Select destination folder..." />
+                     md:HintAssist.Hint="{helpers:Translate Hint_SelectDestination}" />
             <Button Grid.Column="1"
                     Content="..."
                     Command="{Binding BrowseDestinationCommand}"

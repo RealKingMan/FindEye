@@ -1,0 +1,45 @@
+name: WPF CI/CD 自动构建发布
+
+# 触发条件：提交代码到main分支 / 打版本标签时自动运行
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:  # 允许手动触发
+
+# WPF 必须用 Windows 构建环境
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      # 1. 拉取代码
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      # 2. 安装.NET SDK
+      - name: 安装 .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0  # 改成你的项目版本(6.0/7.0/8.0)
+
+      # 3. 恢复NuGet包
+      - name: 恢复依赖
+        run: dotnet restore
+
+      # 4. Release 模式编译
+      - name: 编译项目
+        run: dotnet build -c Release --no-restore
+
+      # 5. 发布：生成独立EXE（无依赖，双击运行）
+      - name: 发布WPF程序
+        run: dotnet publish -c Release -o publish --no-build
+
+      # 6. 打包成ZIP（方便下载）
+      - name: 打包程序
+        run: Compress-Archive -Path publish/* -DestinationPath WPF程序.zip
+
+      # 7. 上传构建产物（CI/CD结果，可直接下载exe）
+      - name: 上传成品
+        uses: actions/upload-artifact@v4
+        with:
+          name: WPF正式包
+          path: WPF程序.zip

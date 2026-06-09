@@ -16,6 +16,8 @@
         <converters:DirIconConverter x:Key="DirIconConverter" />
         <converters:DiffTypeNameConverter x:Key="DiffTypeNameConverter" />
 
+        <converters:NullToTranslatedConverter x:Key="NullToNA" />
+
         <BooleanToVisibilityConverter x:Key="B2V" />
     </UserControl.Resources>
 
@@ -47,7 +49,7 @@
                            FontSize="13" FontWeight="SemiBold" />
                 <TextBox Grid.Row="0" Grid.Column="1"
                          Text="{Binding FolderAPath, UpdateSourceTrigger=PropertyChanged}"
-                         md:HintAssist.Hint="Select folder A..."
+                         md:HintAssist.Hint="{helpers:Translate Hint_FolderA}"
                          IsReadOnly="True"
                          Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" />
                 <Button Grid.Row="0" Grid.Column="2"
@@ -62,7 +64,7 @@
                            FontSize="13" FontWeight="SemiBold" />
                 <TextBox Grid.Row="1" Grid.Column="1"
                          Text="{Binding FolderBPath, UpdateSourceTrigger=PropertyChanged}"
-                         md:HintAssist.Hint="Select folder B..."
+                         md:HintAssist.Hint="{helpers:Translate Hint_FolderB}"
                          IsReadOnly="True"
                          Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
                          Margin="0,12,0,12" />
@@ -129,10 +131,10 @@
                     <DockPanel Grid.Row="0" Margin="0,0,0,8">
                         <CheckBox DockPanel.Dock="Right"
                                   IsChecked="{Binding HideIdentical}"
-                                  Content="Hide identical"
+                                  Content="{helpers:Translate Filter_HideIdentical}"
                                   FontSize="11"
                                   VerticalAlignment="Center" />
-                        <TextBlock Text="Results" FontSize="14" FontWeight="SemiBold"
+                        <TextBlock Text="{helpers:Translate Tree_Results}" FontSize="14" FontWeight="SemiBold"
                                    VerticalAlignment="Center" />
                     </DockPanel>
 
@@ -215,7 +217,7 @@
 
                             <TextBlock Text="{helpers:Translate Detail_Hash}"
                                        Style="{StaticResource DetailLabel}" />
-                            <TextBlock Text="{Binding SelectedItem.Sha256Hash, TargetNullValue=N/A}"
+                            <TextBlock Text="{Binding SelectedItem.Sha256Hash, Converter={StaticResource NullToNA}}"
                                        Style="{StaticResource DetailValue}"
                                        FontFamily="Consolas" FontSize="11"
                                        TextWrapping="WrapWithOverflow" />

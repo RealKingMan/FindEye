@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Globalization;
 using System.Windows;
 using FindEye.App.Helpers;
@@ -37,6 +38,8 @@ public class CompareViewModel : BindableBase
             .ObservesProperty(() => IsComparing);
         ExtractCommand = new DelegateCommand(ExecuteExtractAsync, () => _lastResult != null && !IsComparing)
             .ObservesProperty(() => IsComparing);
+
+        TranslationManager.Instance.PropertyChanged += OnCultureChanged;
     }
 
     // --- Folder paths ---
@@ -151,13 +154,14 @@ public class CompareViewModel : BindableBase
 
     // --- Internal state ---
     private CompareResult? _lastResult;
+    private int _lastExtractFileCount;
 
     private static void BrowseFolder(Action<string> setter)
     {
         using var dialog = new System.Windows.Forms.FolderBrowserDialog();
         dialog.ShowNewFolderButton = false;
         dialog.UseDescriptionForTitle = true;
-        dialog.Description = "Select folder";
+        dialog.Description = TranslationManager.Instance["Dialog_SelectFolder"];
 
         if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             setter(dialog.SelectedPath);
@@ -218,10 +222,12 @@ public class CompareViewModel : BindableBase
         ProgressPercent = p.Percent;
         IsIndeterminate = p.IsIndeterminate;
 
+        var stageText = TranslationManager.Instance[p.Stage];
         if (!string.IsNullOrEmpty(p.CurrentFile))
-            ProgressText = $"{p.Stage}: {p.CurrentFile} ({p.FilesProcessed}/{p.TotalFiles})";
+            ProgressText = string.Format(TranslationManager.Instance["Progress_Format"],
+                stageText, p.CurrentFile, p.FilesProcessed, p.TotalFiles);
         else
-            ProgressText = p.Stage;
+            ProgressText = stageText;
     }
 
     private void ExecuteCancel()
@@ -255,16 +261,17 @@ public class CompareViewModel : BindableBase
                             _lastResult!, options, progress, _cts.Token),
                         _cts.Token);
 
-                    SummaryText = string.Format(
-                        TranslationManager.Instance["ExtractComplete"],
-                        _lastResult!.DiffMap.Count(kvp =>
+                    _lastExtractFileCount = _lastResult!.DiffMap.Count(kvp =>
                         {
                             var dt = kvp.Value;
                             return (dt == DiffType.OnlyInA && options.IncludeOnlyInA) ||
                                    (dt == DiffType.OnlyInB && options.IncludeOnlyInB) ||
                                    (dt == DiffType.ContentDifferent && options.IncludeContentDifferent) ||
                                    (dt == DiffType.Identical && options.IncludeIdentical);
-                        }));
+                        });
+                    SummaryText = string.Format(
+                        TranslationManager.Instance["ExtractComplete"],
+                        _lastExtractFileCount);
                 }
                 catch (OperationCanceledException)
                 {
@@ -335,5 +342,27 @@ public class CompareViewModel : BindableBase
                 : DiffType.Identical,
             Children = new ObservableCollection<CompareTreeNode>(children)
         };
+    }
+
+    private void OnCultureChanged(object? sender, PropertyChangedEventArgs e)
+    {
+        if (_lastResult == null) return;
+
+        if (_lastExtractFileCount > 0)
+        {
+            SummaryText = string.Format(
+                TranslationManager.Instance["ExtractComplete"],
+                _lastExtractFileCount);
+        }
+        else
+        {
+            SummaryText = string.Format(CultureInfo.CurrentUICulture,
+                TranslationManager.Instance["StatusComplete"],
+                _lastResult.Elapsed.TotalSeconds,
+                _lastResult.IdenticalCount,
+                _lastResult.OnlyInACount,
+                _lastResult.OnlyInBCount,
+                _lastResult.ContentDifferentCount);
+        }
     }
 }

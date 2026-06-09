@@ -57,4 +57,22 @@
   <data name="SelectFileHint" xml:space="preserve"><value>选择一个文件以查看详情</value></data>
   <data name="NoResults" xml:space="preserve"><value>暂无比较结果。请在上方选择两个文件夹后开始比较。</value></data>
   <data name="ExtractComplete" xml:space="preserve"><value>提取完成。已复制 {0} 个文件。</value></data>
+  <data name="Hint_FolderA" xml:space="preserve"><value>选择文件夹 A...</value></data>
+  <data name="Hint_FolderB" xml:space="preserve"><value>选择文件夹 B...</value></data>
+  <data name="Filter_HideIdentical" xml:space="preserve"><value>隐藏相同文件</value></data>
+  <data name="Tree_Results" xml:space="preserve"><value>比较结果</value></data>
+  <data name="Common_NA" xml:space="preserve"><value>无</value></data>
+  <data name="Dialog_SelectFolder" xml:space="preserve"><value>选择文件夹</value></data>
+  <data name="Progress_Enumerating" xml:space="preserve"><value>正在枚举文件...</value></data>
+  <data name="Progress_Classifying" xml:space="preserve"><value>正在分类...</value></data>
+  <data name="Progress_Hashing" xml:space="preserve"><value>正在计算哈希</value></data>
+  <data name="Progress_Complete" xml:space="preserve"><value>完成</value></data>
+  <data name="Progress_Extracting" xml:space="preserve"><value>正在提取</value></data>
+  <data name="Progress_Format" xml:space="preserve"><value>{0}：{1}（{2}/{3}）</value></data>
+  <data name="Hint_SelectBaseFolder" xml:space="preserve"><value>选择基准文件夹</value></data>
+  <data name="Hint_SelectDestination" xml:space="preserve"><value>选择目标文件夹...</value></data>
+  <data name="Dialog_SelectDestFolder" xml:space="preserve"><value>选择目标文件夹</value></data>
+  <data name="BaseFolder_A" xml:space="preserve"><value>文件夹 A</value></data>
+  <data name="BaseFolder_B" xml:space="preserve"><value>文件夹 B</value></data>
+  <data name="Extract_NoDest" xml:space="preserve"><value>请选择目标文件夹。</value></data>
 </root>

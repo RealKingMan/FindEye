@@ -1,4 +1,5 @@
 using System.Windows;
+using FindEye.App.Helpers;
 using FindEye.Core.Models;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -8,7 +9,7 @@ namespace FindEye.App.ViewModels;
 
 public class ExtractDialogViewModel : BindableBase, IDialogAware
 {
-    public string Title => "Extract Files";
+    public string Title => TranslationManager.Instance["Extract_Title"];
 
     public DialogCloseListener RequestClose { get; }
 
@@ -46,9 +47,9 @@ public class ExtractDialogViewModel : BindableBase, IDialogAware
     }
 
     // --- Base folder ---
-    public List<string> BaseFolderOptions { get; } = new() { "Folder A", "Folder B" };
+    public List<string> BaseFolderOptions { get; private set; } = new();
 
-    private string _selectedBaseFolder = "Folder A";
+    private string _selectedBaseFolder = string.Empty;
     public string SelectedBaseFolder
     {
         get => _selectedBaseFolder;
@@ -80,6 +81,11 @@ public class ExtractDialogViewModel : BindableBase, IDialogAware
         _result = parameters.GetValue<CompareResult>("result");
         _folderA = parameters.GetValue<string>("folderA");
         _folderB = parameters.GetValue<string>("folderB");
+
+        BaseFolderOptions.Clear();
+        BaseFolderOptions.Add(TranslationManager.Instance["BaseFolder_A"]);
+        BaseFolderOptions.Add(TranslationManager.Instance["BaseFolder_B"]);
+        SelectedBaseFolder = BaseFolderOptions[0];
     }
 
     public bool CanCloseDialog() => true;
@@ -92,7 +98,7 @@ public class ExtractDialogViewModel : BindableBase, IDialogAware
         {
             ShowNewFolderButton = true,
             UseDescriptionForTitle = true,
-            Description = "Select destination folder"
+            Description = TranslationManager.Instance["Dialog_SelectDestFolder"]
         };
 
         if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
@@ -103,7 +109,8 @@ public class ExtractDialogViewModel : BindableBase, IDialogAware
     {
         if (string.IsNullOrWhiteSpace(DestinationPath))
         {
-            MessageBox.Show("Please select a destination folder.", "FindEye",
+            MessageBox.Show(TranslationManager.Instance["Extract_NoDest"],
+                TranslationManager.Instance["AppName"],
                 MessageBoxButton.OK, MessageBoxImage.Warning);
             return;
         }
@@ -114,8 +121,8 @@ public class ExtractDialogViewModel : BindableBase, IDialogAware
             IncludeOnlyInB = IncludeOnlyInB,
             IncludeContentDifferent = IncludeContentDifferent,
             IncludeIdentical = IncludeIdentical,
-            UseAAsBase = SelectedBaseFolder == "Folder A",
-            SourceBasePath = SelectedBaseFolder == "Folder A" ? _folderA : _folderB,
+            UseAAsBase = BaseFolderOptions.IndexOf(SelectedBaseFolder) == 0,
+            SourceBasePath = BaseFolderOptions.IndexOf(SelectedBaseFolder) == 0 ? _folderA : _folderB,
             DestinationPath = DestinationPath
         };
 

@@ -57,4 +57,22 @@
   <data name="SelectFileHint" xml:space="preserve"><value>Select a file to view details</value></data>
   <data name="NoResults" xml:space="preserve"><value>No comparison results yet. Start by selecting two folders above.</value></data>
   <data name="ExtractComplete" xml:space="preserve"><value>Extraction complete. {0} files copied.</value></data>
+  <data name="Hint_FolderA" xml:space="preserve"><value>Select folder A...</value></data>
+  <data name="Hint_FolderB" xml:space="preserve"><value>Select folder B...</value></data>
+  <data name="Filter_HideIdentical" xml:space="preserve"><value>Hide identical</value></data>
+  <data name="Tree_Results" xml:space="preserve"><value>Results</value></data>
+  <data name="Common_NA" xml:space="preserve"><value>N/A</value></data>
+  <data name="Dialog_SelectFolder" xml:space="preserve"><value>Select folder</value></data>
+  <data name="Progress_Enumerating" xml:space="preserve"><value>Enumerating files...</value></data>
+  <data name="Progress_Classifying" xml:space="preserve"><value>Classifying...</value></data>
+  <data name="Progress_Hashing" xml:space="preserve"><value>Hashing</value></data>
+  <data name="Progress_Complete" xml:space="preserve"><value>Complete</value></data>
+  <data name="Progress_Extracting" xml:space="preserve"><value>Extracting</value></data>
+  <data name="Progress_Format" xml:space="preserve"><value>{0}: {1} ({2}/{3})</value></data>
+  <data name="Hint_SelectBaseFolder" xml:space="preserve"><value>Select base folder</value></data>
+  <data name="Hint_SelectDestination" xml:space="preserve"><value>Select destination folder...</value></data>
+  <data name="Dialog_SelectDestFolder" xml:space="preserve"><value>Select destination folder</value></data>
+  <data name="BaseFolder_A" xml:space="preserve"><value>Folder A</value></data>
+  <data name="BaseFolder_B" xml:space="preserve"><value>Folder B</value></data>
+  <data name="Extract_NoDest" xml:space="preserve"><value>Please select a destination folder.</value></data>
 </root>

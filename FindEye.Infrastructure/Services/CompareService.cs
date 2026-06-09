@@ -24,7 +24,7 @@ public class CompareService : ICompareService
         // Phase 1: Enumerate both folders in parallel
         progress.Report(new ComparisonProgress
         {
-            Stage = "Enumerating files...",
+            Stage = "Progress_Enumerating",
             IsIndeterminate = true
         });
 
@@ -48,7 +48,7 @@ public class CompareService : ICompareService
         // Phase 2: Classify by path and size
         progress.Report(new ComparisonProgress
         {
-            Stage = "Classifying...",
+            Stage = "Progress_Classifying",
             IsIndeterminate = true
         });
 
@@ -131,7 +131,7 @@ public class CompareService : ICompareService
 
         progress.Report(new ComparisonProgress
         {
-            Stage = "Complete",
+            Stage = "Progress_Complete",
             Percent = 100,
             FilesProcessed = filesA.Count + filesB.Count,
             TotalFiles = filesA.Count + filesB.Count

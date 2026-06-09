@@ -41,7 +41,7 @@ public class ExtractService : IExtractService
             int processed = Interlocked.Increment(ref completed);
             progress.Report(new ComparisonProgress
             {
-                Stage = "Extracting",
+                Stage = "Progress_Extracting",
                 Percent = processed * 100 / total,
                 FilesProcessed = processed,
                 TotalFiles = total,
