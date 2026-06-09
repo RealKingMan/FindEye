@@ -3,7 +3,7 @@ name: WPF CI/CD 自动构建发布
 # 触发条件：提交代码到main分支 / 打版本标签时自动运行
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   workflow_dispatch:  # 允许手动触发
 
 # WPF 必须用 Windows 构建环境
@@ -41,5 +41,6 @@ jobs:
       - name: 上传成品
         uses: actions/upload-artifact@v4
         with:
-          name: WPF正式包
-          path: WPF程序.zip
+          name: FindEye
+          path: publish/  # 直接上传整个发布目录
+          retention-days: 30  # 可选：设置保留30天自动删除
